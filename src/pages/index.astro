@@ -1,0 +1,31 @@
+---
+const user = Astro.locals.user;
+const csrfToken = Astro.locals.csrfToken ?? Astro.cookies.get("csrfToken")?.value ?? "";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Inicio</title>
+  </head>
+  <body>
+    <h1>Login/Register con Astro DB</h1>
+    {user ? (
+      <>
+        <p>Sesion iniciada como <strong>{user.email}</strong>.</p>
+        <p><a href="/dashboard">Ir al area privada</a></p>
+        <form action="/api/logout" method="post">
+          <input type="hidden" name="csrfToken" value={csrfToken} />
+          <button type="submit">Cerrar sesion</button>
+        </form>
+      </>
+    ) : (
+      <>
+        <p>Area publica. Debes autenticarte para ver el contenido privado.</p>
+        <p>
+          <a href="/login">Iniciar sesion</a> | <a href="/register">Crear cuenta</a>
+        </p>
+      </>
+    )}
+  </body>
+</html>

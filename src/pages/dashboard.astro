@@ -1,0 +1,26 @@
+---
+const user = Astro.locals.user;
+const csrfToken = Astro.locals.csrfToken ?? Astro.cookies.get("csrfToken")?.value ?? "";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Area privada</title>
+  </head>
+  <body>
+    <h1>Area privada</h1>
+    {user ? (
+      <>
+        <p>Hola, <strong>{user.email}</strong>. Esta es una pantalla protegida.</p>
+        <p><a href="/">Volver al inicio publico</a></p>
+        <form action="/api/logout" method="post">
+          <input type="hidden" name="csrfToken" value={csrfToken} />
+          <button type="submit">Cerrar sesion</button>
+        </form>
+      </>
+    ) : (
+      <p>No hay sesion activa.</p>
+    )}
+  </body>
+</html>

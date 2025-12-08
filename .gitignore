@@ -1,0 +1,7 @@
+.astro/
+node_modules/
+dist/
+.env
+*.db
+npm-debug.log*
+pnpm-debug.log*

@@ -1,0 +1,21 @@
+{
+  "name": "login-register-dgs",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "db:push": "astro db push",
+    "db:studio": "astro db studio"
+  },
+  "dependencies": {
+    "@astrojs/db": "^0.18.3",
+    "@astrojs/node": "^9.5.1",
+    "astro": "^5.16.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

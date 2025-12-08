@@ -1,0 +1,28 @@
+---
+const message = Astro.url.searchParams.get("message");
+const csrfToken = Astro.locals.csrfToken ?? Astro.cookies.get("csrfToken")?.value ?? "";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iniciar sesion</title>
+  </head>
+  <body>
+    <h1>Iniciar sesion</h1>
+    {message && <p>{message}</p>}
+    <form action="/api/login" method="post">
+      <input type="hidden" name="csrfToken" value={csrfToken} />
+      <label>
+        Correo
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Contrasena
+        <input type="password" name="password" required minlength="8" />
+      </label>
+      <button type="submit">Entrar</button>
+    </form>
+    <p>No tienes cuenta? <a href="/register">Registrate</a></p>
+  </body>
+</html>
