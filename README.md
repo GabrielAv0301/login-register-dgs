@@ -1,5 +1,6 @@
 # Login/Register con Astro DB (Node + SSR)
 
+integracion con backend
 En colaboración con DG Solutions:
 Módulo de autenticación con registro, login y sesiones persistentes usando Astro 5, Astro DB (SQLite local) y adapter de Node en modo SSR. Incluye middleware de protección, acciones y endpoints equivalentes, CSRF, cookies seguras y rate limiting básico.
 
